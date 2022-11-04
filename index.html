@@ -16,7 +16,7 @@
   <body>
     <header class="header-contact">
       <h1 id="header">Welcome to The Little Taco Shop</h1>
-      <nav id="navigation" class="normal">
+      <nav id="navigation">
         <ul>
           <li><a href="#pseudo-about">About LTS</a></li>
           <li><a href="#pseudo-ourMenu">Our Menu</a></li>
@@ -125,8 +125,10 @@
             2
       ) {
         document.querySelector("#navigation").classList.add("fixed");
+        document.querySelector("#navigation").classList.remove("normal");
       } else {
         document.querySelector("#navigation").classList.remove("fixed");
+        document.querySelector("#navigation").classList.add("normal");
       }
     });
   </script>
