@@ -16,7 +16,15 @@
   <body>
     <header class="header-contact">
       <h1 id="header">Welcome to The Little Taco Shop</h1>
-      <nav id="navigation">
+      <nav id="navigation__normal" class="normal">
+        <ul>
+          <li><a href="#pseudo-about">About LTS</a></li>
+          <li><a href="#pseudo-ourMenu">Our Menu</a></li>
+          <li><a href="hours.html">Store Hours</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <nav id="navigation" class="fixed">
         <ul>
           <li><a href="#pseudo-about">About LTS</a></li>
           <li><a href="#pseudo-ourMenu">Our Menu</a></li>
@@ -122,13 +130,22 @@
         ) >=
         document.querySelector("#header").getBoundingClientRect().height +
           document.querySelector("#navigation").getBoundingClientRect().height /
-            2
+            2 +
+          2
       ) {
-        document.querySelector("#navigation").classList.add("fixed");
-        document.querySelector("#navigation").classList.remove("normal");
+        document.querySelector("#navigation").style.display = "block";
+        document
+          .querySelector("#navigation__normal")
+          .classList.add("transparent");
+        document
+          .querySelector("#navigation__normal")
+          .classList.remove("normal");
       } else {
-        document.querySelector("#navigation").classList.remove("fixed");
-        document.querySelector("#navigation").classList.add("normal");
+        document.querySelector("#navigation").style.display = "";
+        document
+          .querySelector("#navigation__normal")
+          .classList.remove("transparent");
+        document.querySelector("#navigation__normal").classList.add("normal");
       }
     });
   </script>

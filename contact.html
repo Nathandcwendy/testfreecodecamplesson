@@ -16,7 +16,15 @@
   <body>
     <header class="header-contact">
       <h1 id="header">Contact Us</h1>
-      <nav id="navigation">
+      <nav id="navigation__normal" class="normal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#pseudo-about">About LTS</a></li>
+          <li><a href="index.html#pseudo-ourMenu">Our Menu</a></li>
+          <li><a href="hours.html">Store Hours</a></li>
+        </ul>
+      </nav>
+      <nav id="navigation" class="fixed">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#pseudo-about">About LTS</a></li>
@@ -142,11 +150,18 @@
         ) >=
         document.querySelector("#header").getBoundingClientRect().height +
           document.querySelector("#navigation").getBoundingClientRect().height /
-            2
+            2 +
+          2
       ) {
-        document.querySelector("#navigation").classList.add("fixed");
+        document.querySelector("#navigation").style.display = "block";
+        document
+          .querySelector("#navigation__normal")
+          .classList.add("transparent");
       } else {
-        document.querySelector("#navigation").classList.remove("fixed");
+        document.querySelector("#navigation").style.display = "";
+        document
+          .querySelector("#navigation__normal")
+          .classList.remove("transparent");
       }
     });
   </script>
