@@ -97,7 +97,6 @@ nav {
 
 @keyframes animate-fixed {
   from {
-    display: block;
     opacity: 0;
     transform: translateY(-30%);
   }

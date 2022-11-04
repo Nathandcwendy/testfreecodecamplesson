@@ -157,11 +157,15 @@
         document
           .querySelector("#navigation__normal")
           .classList.add("transparent");
+        document
+          .querySelector("#navigation__normal")
+          .classList.remove("normal");
       } else {
         document.querySelector("#navigation").style.display = "";
         document
           .querySelector("#navigation__normal")
           .classList.remove("transparent");
+        document.querySelector("#navigation__normal").classList.add("normal");
       }
     });
   </script>
