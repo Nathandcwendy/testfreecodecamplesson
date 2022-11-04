@@ -61,6 +61,7 @@ header {
 nav {
   background-color: rgba(99, 102, 107, 0.952);
   border-radius: 15px;
+  will-change: position;
 }
 
 .normal {
