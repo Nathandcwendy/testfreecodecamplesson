@@ -15,8 +15,8 @@
   </head>
   <body>
     <header class="header-contact">
-      <h1>Welcome to The Little Taco Shop</h1>
-      <nav>
+      <h1 id="header">Welcome to The Little Taco Shop</h1>
+      <nav id="navigation">
         <ul>
           <li><a href="#pseudo-about">About LTS</a></li>
           <li><a href="#pseudo-ourMenu">Our Menu</a></li>
@@ -114,4 +114,26 @@
       <p>Copyright &copy; The Little Taco Shop</p>
     </footer>
   </body>
+  <script>
+    console.log(
+      document.querySelector("#navigation").getBoundingClientRect().top
+    );
+    window.addEventListener("scroll", () => {
+      console.log(
+        document.querySelector("#navigation").getBoundingClientRect().top
+      );
+      if (
+        Math.abs(
+          document.querySelector("#header").getBoundingClientRect().top
+        ) >=
+        document.querySelector("#header").getBoundingClientRect().height +
+          document.querySelector("#navigation").getBoundingClientRect().height /
+            2
+      ) {
+        document.querySelector("#navigation").classList.add("fixed");
+      } else {
+        document.querySelector("#navigation").classList.remove("fixed");
+      }
+    });
+  </script>
 </html>
