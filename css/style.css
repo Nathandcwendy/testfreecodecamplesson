@@ -65,7 +65,7 @@ nav {
 }
 
 .normal {
-  animation: 0.5s ease-in-out -0.1s 1 forwards animate-normal;
+  animation: 0.3s ease-in-out -0.1s 1 forwards animate-normal;
 }
 
 .fixed {
@@ -76,17 +76,21 @@ nav {
   width: 100%;
   left: 0;
   border-radius: 0px;
-  animation: 0.2s linear 0s 1 forwards animate-fixed;
+  animation: 0.3s linear -0.1s 1 forwards animate-fixed;
 }
 
-.transparent {
+.hidden {
   visibility: hidden;
+}
+
+.display__block {
+  display: block;
 }
 
 @keyframes animate-normal {
   from {
     opacity: 0;
-    transform: translateY(-30%);
+    transform: translateY(-50%);
     border-radius: 0px;
   }
   to {

@@ -66,29 +66,36 @@
     </footer>
   </body>
   <script>
+    const headerHeight = document
+      .querySelector("#header")
+      .getBoundingClientRect().height;
+    const navHeight = document
+      .querySelector("#navigation")
+      .getBoundingClientRect().height;
+    const headerEl = document.querySelector("#header");
+    const navElMain = document.querySelector("#navigation__normal");
+    const navElTop = document.querySelector("#navigation");
     window.addEventListener("scroll", () => {
-      if (
-        Math.abs(
-          document.querySelector("#header").getBoundingClientRect().top
-        ) >=
-        document.querySelector("#header").getBoundingClientRect().height +
-          document.querySelector("#navigation").getBoundingClientRect().height /
-            2 +
-          2
-      ) {
-        document.querySelector("#navigation").style.display = "block";
-        document
-          .querySelector("#navigation__normal")
-          .classList.add("transparent");
-        document
-          .querySelector("#navigation__normal")
-          .classList.remove("normal");
+      if (navElMain.getBoundingClientRect().top <= 0) {
+        if (!navElTop.classList.contains("display__block")) {
+          navElTop.classList.add("display__block");
+        }
+        if (!navElMain.classList.contains("hidden")) {
+          navElMain.classList.add("hidden");
+        }
+        if (navElMain.classList.contains("normal")) {
+          navElMain.classList.remove("normal");
+        }
       } else {
-        document.querySelector("#navigation").style.display = "";
-        document
-          .querySelector("#navigation__normal")
-          .classList.remove("transparent");
-        document.querySelector("#navigation__normal").classList.add("normal");
+        if (navElTop.classList.contains("display__block")) {
+          navElTop.classList.remove("display__block");
+        }
+        if (navElMain.classList.contains("hidden")) {
+          navElMain.classList.remove("hidden");
+        }
+        if (!navElMain.classList.contains("normal")) {
+          navElMain.classList.remove("normal");
+        }
       }
     });
   </script>
